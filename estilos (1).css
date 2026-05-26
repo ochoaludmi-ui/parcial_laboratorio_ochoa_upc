@@ -1,0 +1,393 @@
+/* ================================================
+   estilos.css — Portfolio Ludmila Ochoa
+   Laboratorio Digital 2026 · UPC Córdoba
+   ================================================ */
+
+/* Google Fonts: Roboto Slab (display) + Roboto (body) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700;900&family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+/* ── Variables de diseño ─────────────────────── */
+:root {
+  --bg:         #faf7f2;
+  --bg2:        #f0ebe0;
+  --ink:        #1a1612;
+  --accent:     #e8460a;      /* naranja quemado — energía, imprenta */
+  --accent2:    #2563c4;      /* azul eléctrico — digital */
+  --accent3:    #f5c842;      /* amarillo — ilustración */
+  --muted:      #7a7060;
+  --border:     #d4cfc4;
+  --font-slab:  'Roboto Slab', Georgia, serif;
+  --font-body:  'Roboto', Helvetica, sans-serif;
+  --max-w: 860px;
+  --radius: 2px;
+}
+
+/* ── Reset ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;   /* 17px — medida óptima para lectura en pantalla */
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ── Barra de color superior ─────────────────── */
+body::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent3) 50%, var(--accent2) 100%);
+}
+
+/* ── Nav ─────────────────────────────────────── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+nav .logo {
+  font-family: var(--font-slab);
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+nav .logo span {
+  color: var(--accent);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+nav ul li a:hover,
+nav ul li a.activo {
+  color: var(--accent);
+}
+
+/* ── Contenedor ──────────────────────────────── */
+.contenedor {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 6rem;
+}
+
+/* ── Hero header ─────────────────────────────── */
+.hero {
+  padding-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+}
+
+.hero-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+/* ── H1 ──────────────────────────────────────── */
+h1 {
+  font-family: var(--font-slab);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+h1 .subray {
+  position: relative;
+  display: inline-block;
+}
+
+h1 .subray::after {
+  content: '';
+  position: absolute;
+  bottom: 0.05em;
+  left: 0;
+  width: 100%;
+  height: 0.22em;
+  background: var(--accent3);
+  z-index: -1;
+  transform: skewX(-3deg);
+}
+
+.hero-bajada {
+  font-family: var(--font-slab);
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 55ch;
+  margin-top: 0.5rem;
+}
+
+/* ── H2 ──────────────────────────────────────── */
+h2 {
+  font-family: var(--font-slab);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: var(--ink);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+h2::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  flex-shrink: 0;
+  transform: rotate(45deg);
+}
+
+/* ── Párrafos ────────────────────────────────── */
+p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 65ch;           /* línea óptima para lectura en pantalla */
+  margin-bottom: 1.1rem;
+  color: #2e2a22;
+}
+
+p strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ── Enlaces ─────────────────────────────────── */
+a {
+  color: var(--accent2);
+  text-decoration: none;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ── Chips de habilidades ────────────────────── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 1.5rem;
+  list-style: none;
+}
+
+.chips li {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--radius);
+}
+
+.chips li.alt {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+
+/* ── Bloque destacado ────────────────────────── */
+.destacado {
+  background: var(--bg2);
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.destacado p {
+  margin-bottom: 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+/* ── Grid intereses ──────────────────────────── */
+.intereses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--border);
+  margin: 1.25rem 0;
+  background: var(--border);
+}
+
+.interes-item {
+  background: var(--bg);
+  padding: 1.2rem 1.25rem;
+  transition: background 0.15s;
+}
+
+.interes-item:hover { background: var(--bg2); }
+
+.interes-item .num {
+  font-family: var(--font-slab);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent3);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.interes-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  max-width: none;
+}
+
+/* ── CTA enlaces externos ────────────────────── */
+.links-externos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 1.5px solid var(--ink) !important;
+}
+
+.btn-link:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* ── Licencia ────────────────────────────────── */
+.licencia {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+
+.licencia a { font-size: 0.78rem; }
+
+/* ── Footer ──────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-body);
+}
+
+/* ── Página referentes ───────────────────────── */
+.obra-card {
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  background: var(--bg);
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.obra-card:hover {
+  box-shadow: 4px 4px 0 var(--accent3);
+}
+
+.obra-card .obra-num {
+  font-family: var(--font-slab);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--bg2);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.obra-card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.obra-card h2::before { background: var(--accent2); }
+
+.obra-card .tipo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.obra-card p { color: #3a342a; }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 600px) {
+  nav ul { gap: 1rem; }
+  h1 { font-size: 2.6rem; }
+  .hero-bajada { font-size: 1rem; }
+}
